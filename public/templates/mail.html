@@ -13,12 +13,12 @@
   <md-button class="md-icon-button" aria-label="Favorite">
   </md-button>
   <md-button class="md-icon-button" aria-label="More">
-  <md-icon>more_vert</md-icon>
+  <md-icon ng-click="refresh()">refresh</md-icon>
   </md-button>
 </div>
 </md-toolbar>
 <md-content flex>
-<md-list>
+<md-list class="email-list" ng-class="{'faded': loading}">
 <md-list-item class="md-2-line email-item" ng-repeat="email in emails" ng-click="showEmail($event, email, $index)" ng-class="{ 'selected-item': $index == selectedIndex }">
 <div class="md-list-item-text">
   <h3>{{email.subject}}</h3>

@@ -3,13 +3,7 @@ angular.module('mailNurse')
 
   $scope.loading = true;
 
-  Restangular.all('emails').getList().then(function(emails) {
-    $scope.emails = emails.map(function(email) {
-      email.body = $sce.trustAsHtml(email.body);
-      return email;
-    });
-    $scope.loading = false;
-  });
+
   $scope.showEmail = function(ev, email, index) {
     // $scope.selectedIndex = index
      $mdDialog.show({
@@ -28,6 +22,19 @@ angular.module('mailNurse')
       $mdDialog.hide();
     }
   }
+
+  $scope.refresh = function() {
+    $scope.loading = true;
+    Restangular.all('emails').getList().then(function(emails) {
+      $scope.emails = emails.map(function(email) {
+        email.body = $sce.trustAsHtml(email.body);
+        return email;
+      });
+      $scope.loading = false;
+    });
+  }
+
+  $scope.refresh();
 }]);
 
 function resizeIframe(obj){

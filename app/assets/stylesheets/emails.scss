@@ -37,6 +37,7 @@
   animation: animation_keyframes 2s steps(127) infinite;
 }
 
+
 @-webkit-keyframes animation_keyframes {
   from { background-position: 0 -34290px }
   to { background-position: 0 0 }
@@ -52,4 +53,13 @@
 @keyframes animation_keyframes {
   from { background-position: 0 -34290px }
   to { background-position: 0 0 }
+}
+
+.email-list {
+  transition: opacity 0.5s;
+  opacity: 1;
+}
+
+.email-list.faded {
+    opacity: 0.5;
 }
