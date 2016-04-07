@@ -21,6 +21,7 @@ group :development, :test do
   gem 'selenium-webdriver'
   gem 'better_errors'
   gem 'byebug'
+  gem 'pry-byebug'
 end
 
 group :development do

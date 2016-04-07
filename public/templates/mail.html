@@ -19,16 +19,17 @@
 </md-toolbar>
 <md-content flex>
 <md-list>
-<md-list-item class="md-3-line" ng-repeat="email in emails">
+<md-list-item class="md-2-line" ng-repeat="email in emails" ng-click="showEmail($event, email)">
 <div class="md-list-item-text">
   <h3>{{email.subject}}</h3>
   <h4>{{email.from}}</h4>
-  <p>
-  {{email.preview}}
-  </p>
 </div>
 <md-divider inset></md-divider>
+<!-- <div ng&#45;bind&#45;html="email.body"></div> -->
 </md-list-item>
 </md-list>
 </md-content>
 
+<md-content flex padding>
+
+</md-content>
