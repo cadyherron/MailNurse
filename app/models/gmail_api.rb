@@ -3,8 +3,12 @@ include ActionView::Helpers::SanitizeHelper
 
 
 class GmailAPI
-  def initialize
-    @gmail = Gmail.connect(ENV["email"], ENV["password"])
+  def initialize auth_obj
+    email = auth_obj.info.email
+    token = auth_obj.credentials.refresh_token
+    @gmail = Gmail.connect(:xoauth2, email, token.to_s)
+
+    # raise
   end
 
   # Mail.defaults do
@@ -16,7 +20,6 @@ class GmailAPI
   # end
 
   def grab_all
-    @arr = []
     @email_objects = []
     @emails = @gmail.inbox.emails
     # @other = Mail.all
