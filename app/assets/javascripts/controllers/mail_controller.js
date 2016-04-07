@@ -1,12 +1,15 @@
 angular.module('mailNurse')
 .controller('MailCtrl', ['$scope', '$sce', 'Restangular', '$mdDialog', '$window', function($scope, $sce, Restangular, $mdDialog, $window) {
+
+  $scope.loading = true;
+
   Restangular.all('emails').getList().then(function(emails) {
     $scope.emails = emails.map(function(email) {
       email.body = $sce.trustAsHtml(email.body);
       return email;
     });
+    $scope.loading = false;
   });
-
   $scope.showEmail = function(ev, email, index) {
     // $scope.selectedIndex = index
      $mdDialog.show({

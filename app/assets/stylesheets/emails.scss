@@ -16,3 +16,40 @@
   }
   background-color: red;
 }
+
+
+.animation{
+  width: 480px;
+  height: 270px;
+  background-image: url("/logo.png");
+  background-position: 0 0;
+  transform: scale(0.28);
+  transition: all 0.5s;
+}
+
+.loading {
+  position: relative;
+  transform: scale(0.8) translateY(300px);
+  -webkit-animation: animation_keyframes 2s steps(127) infinite;
+  -moz-animation: animation_keyframes 2s steps(127) infinite;
+  -ms-animation: animation_keyframes 2s steps(127) infinite;
+  -o-animation: animation_keyframes 2s steps(127) infinite;
+  animation: animation_keyframes 2s steps(127) infinite;
+}
+
+@-webkit-keyframes animation_keyframes {
+  from { background-position: 0 -34290px }
+  to { background-position: 0 0 }
+}
+@-o-keyframes animation_keyframes {
+  from { background-position: 0 -34290px }
+  to { background-position: 0 0 }
+}
+@-moz-keyframes animation_keyframes {
+  from { background-position: 0 -34290px }
+  to { background-position: 0 0 }
+}
+@keyframes animation_keyframes {
+  from { background-position: 0 -34290px }
+  to { background-position: 0 0 }
+}
