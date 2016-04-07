@@ -11,6 +11,7 @@ gem 'gmail'
 gem 'angularjs-rails'
 gem 'angular_rails_csrf'
 gem 'figaro'
+gem 'premailer'
 
 group :development, :test do
   gem 'rspec-rails'
@@ -21,6 +22,7 @@ group :development, :test do
   gem 'selenium-webdriver'
   gem 'better_errors'
   gem 'byebug'
+  gem 'pry-byebug'
 end
 
 group :development do
