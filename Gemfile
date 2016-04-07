@@ -10,6 +10,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'gmail'
 gem 'angularjs-rails'
 gem 'angular_rails_csrf'
+gem 'figaro'
 
 group :development, :test do
   gem 'rspec-rails'
