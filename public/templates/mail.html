@@ -1,1 +1,34 @@
-<h1>Mail</h1>
+<md-toolbar class="md-hue-2">
+<div class="md-toolbar-tools">
+  <!-- <md&#45;button class="md&#45;icon&#45;button" aria&#45;label="Settings" ng&#45;disabled="true"> -->
+  <!-- <md&#45;icon>menu</md&#45;icon> -->
+  <!-- </md&#45;button> -->
+  <h2>
+    Mail Nurse
+  </h2>
+  <span flex></span>
+
+  <img class="nurse-icon" src="mail_nurse_logo.svg" alt="">
+  <span flex></span>
+  <md-button class="md-icon-button" aria-label="Favorite">
+  </md-button>
+  <md-button class="md-icon-button" aria-label="More">
+  <md-icon>more_vert</md-icon>
+  </md-button>
+</div>
+</md-toolbar>
+<md-content flex>
+<md-list>
+<md-list-item class="md-3-line" ng-repeat="email in emails">
+<div class="md-list-item-text">
+  <h3>{{email.subject}}</h3>
+  <h4>{{email.from}}</h4>
+  <p>
+  {{email.preview}}
+  </p>
+</div>
+<md-divider inset></md-divider>
+</md-list-item>
+</md-list>
+</md-content>
+
