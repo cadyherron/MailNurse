@@ -11,6 +11,7 @@ gem 'gmail'
 gem 'angularjs-rails'
 gem 'angular_rails_csrf'
 gem 'figaro'
+gem 'premailer'
 
 group :development, :test do
   gem 'rspec-rails'

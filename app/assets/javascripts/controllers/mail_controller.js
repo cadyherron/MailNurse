@@ -1,15 +1,16 @@
 angular.module('mailNurse')
-.controller('MailCtrl', ['$scope', '$sce', 'emails', '$mdDialog', '$window', function($scope, $sce, emails, $mdDialog, $window) {
-  $scope.emails = [];
-  console.log(emails);
-  $scope.emails = emails.map(function(email) {
-    email.body = $sce.trustAsHtml(email.body);
-    return email;
+.controller('MailCtrl', ['$scope', '$sce', 'Restangular', '$mdDialog', '$window', function($scope, $sce, Restangular, $mdDialog, $window) {
+  Restangular.all('emails').getList().then(function(emails) {
+    $scope.emails = emails.map(function(email) {
+      email.body = $sce.trustAsHtml(email.body);
+      return email;
+    });
   });
 
-  $scope.showEmail = function(ev, email) {
+  $scope.showEmail = function(ev, email, index) {
+    // $scope.selectedIndex = index
      $mdDialog.show({
-      template: '<md-dialog><md-toolbar><div class="md-toolbar-tools">{{email.subject}}<span flex></span><md-button class="md-icon-button" ng-click="close()"><md-icon>close</md-icon></md-button></div></md-toolbar><md-content layout-padding><iframe srcdoc="{{email.body}}" scrolling="no" onload="resizeIframe(this)" frameborder="0" width="800px" height="1500px" flex></iframe></md-content></md-dialog>',
+      template: '<md-dialog><md-toolbar><div class="md-toolbar-tools">{{email.subject}}<span flex></span><md-button class="md-icon-button" ng-click="close()"><md-icon>close</md-icon></md-button></div></md-toolbar><md-content layout-padding><div ng-bind-html="email.body"></div></md-content></md-dialog>',
       targetEvent: ev,
       locals: {
         email: email

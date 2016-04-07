@@ -1,3 +1,18 @@
 // Place all the styles related to the Emails controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.email-item {
+  transition: all 0.3s;
+}
+
+.test {
+  display: none;
+}
+
+.selected-item {
+  .test {
+    display: block;
+  }
+  background-color: red;
+}

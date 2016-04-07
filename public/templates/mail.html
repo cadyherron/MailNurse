@@ -19,13 +19,15 @@
 </md-toolbar>
 <md-content flex>
 <md-list>
-<md-list-item class="md-2-line" ng-repeat="email in emails" ng-click="showEmail($event, email)">
+<md-list-item class="md-2-line email-item" ng-repeat="email in emails" ng-click="showEmail($event, email, $index)" ng-class="{ 'selected-item': $index == selectedIndex }">
 <div class="md-list-item-text">
   <h3>{{email.subject}}</h3>
   <h4>{{email.from}}</h4>
 </div>
 <md-divider inset></md-divider>
-<!-- <div ng&#45;bind&#45;html="email.body"></div> -->
+<!-- <div class="test"> -->
+<!--   <div ng&#45;bind&#45;html="email.body"></div> -->
+<!-- </div> -->
 </md-list-item>
 </md-list>
 </md-content>

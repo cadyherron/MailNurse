@@ -15,11 +15,6 @@ angular.module('mailNurse', ['ngMaterial', 'ui.router', 'restangular', ])
           url: '/mail',
           controller: 'MailCtrl',
           templateUrl: '/templates/mail.html',
-          resolve: {
-            emails: function(Restangular) {
-              return Restangular.all('emails').getList();
-            }
-          }
         });
     }])
 
