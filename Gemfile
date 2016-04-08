@@ -31,3 +31,7 @@ group :development do
   gem 'spring-commands-rspec'
   gem 'rubocop', require: false
 end
+
+group :production do
+  gem 'rails_12factor' # heroku 
+end

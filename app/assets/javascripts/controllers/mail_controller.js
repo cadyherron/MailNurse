@@ -27,7 +27,7 @@ angular.module('mailNurse')
     $scope.loading = true;
     Restangular.all('emails').getList().then(function(emails) {
       $scope.emails = emails.map(function(email) {
-        email.body = $sce.trustAsHtml(email.body);
+        email.body = $scope.trustAsHtml(email.body);
         return email;
       });
       $scope.loading = false;
