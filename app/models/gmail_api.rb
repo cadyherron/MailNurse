@@ -4,7 +4,7 @@ include ActionView::Helpers::SanitizeHelper
 
 class GmailAPI
   def initialize(user)
-    @gmail = Gmail.connect(:xoauth2, 'kit.langton@gmail.com', user.oauth_token)
+    @gmail = Gmail.connect(:xoauth2, user.email, user.oauth_token)
   end
 
   def grab_all
