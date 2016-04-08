@@ -12,10 +12,20 @@ angular.module('mailNurse', ['ngMaterial', 'ui.router', 'restangular', 'ngAnimat
 
       $stateProvider
         .state('mail', {
-          url: '/mail',
+          url: "/mail",
+          abstract: true, 
+          templateUrl: "templates/mail.html"
+        })
+        .state('mail.index', {
+          url: '',
           controller: 'MailCtrl',
-          templateUrl: '/templates/mail.html',
-        });
+          templateUrl: 'templates/mail/index.html',
+        })
+        .state('mail.compose', {
+          url: '/compose',
+          controller: "MailCtrl",
+          templateUrl: "templates/mail/compose.html"
+        })
     }])
 
 .factory('_', ['$window', function($window) {

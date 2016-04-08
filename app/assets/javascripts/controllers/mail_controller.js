@@ -33,5 +33,15 @@ angular.module('mailNurse')
     });
   }
 
+  $scope.compose = function() {
+    
+  }
+
+  $scope.sendEmail = function(email) {
+    Restangular.all('emails').post(email);
+  }
+
+
+
   $scope.refresh();
 }]);

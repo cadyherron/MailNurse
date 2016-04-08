@@ -1,8 +1,5 @@
 <md-toolbar class="md-hue-2">
 <div class="md-toolbar-tools">
-  <!-- <md&#45;button class="md&#45;icon&#45;button" aria&#45;label="Settings" ng&#45;disabled="true"> -->
-  <!-- <md&#45;icon>menu</md&#45;icon> -->
-  <!-- </md&#45;button> -->
   <h2>
     Mail Nurse
   </h2>
@@ -10,26 +7,18 @@
 
   <div class="animation" ng-class="{'loading': loading}"></div>
   <span flex></span>
-  <md-button class="md-icon-button" aria-label="Favorite">
+  <md-button class="md-raised" aria-label="Signout" href="/signout">
+    <h2>Signout</h2>
   </md-button>
   <md-button class="md-icon-button" aria-label="More">
-  <md-icon ng-click="refresh()">refresh</md-icon>
+    <md-icon ui-sref="mail.compose">add</md-icon>
+  </md-button>
+  <md-button class="md-icon-button" aria-label="More">
+    <md-icon ng-click="refresh()">refresh</md-icon>
   </md-button>
 </div>
 </md-toolbar>
-<md-content flex>
-<md-list class="email-list" ng-class="{'faded': loading}">
-<md-list-item class="md-2-line email-item" ng-repeat="email in emails" ng-click="showEmail($event, email, $index)" ng-class="{ 'selected-item': $index == selectedIndex }">
-<div class="md-list-item-text">
-  <h3>{{email.subject}}</h3>
-  <h4>{{email.from}}</h4>
-</div>
-<md-divider inset></md-divider>
-</md-list-item>
-</md-list>
-</md-content>
+
+<div ui-view></div>
 
 
-<md-content flex padding>
-
-</md-content>

@@ -1,0 +1,16 @@
+<md-content flex>
+<md-list class="email-list" ng-class="{'faded': loading}">
+<md-list-item class="md-2-line email-item" ng-repeat="email in emails" ng-click="showEmail($event, email, $index)" ng-class="{ 'selected-item': $index == selectedIndex }">
+<div class="md-list-item-text">
+  <h3>{{email.subject}}</h3>
+  <h4>{{email.from}}</h4>
+</div>
+<md-divider inset></md-divider>
+</md-list-item>
+</md-list>
+</md-content>
+
+
+<md-content flex padding>
+
+</md-content>
