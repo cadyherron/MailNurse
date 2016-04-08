@@ -36,11 +36,13 @@ angular.module('mailNurse')
   $scope.newEmail = {email : {to: null, subject: null, body: null}};
 
 
-  $scope.sendEmail = function() {
-    Restangular.all('emails').post($scope.newEmail).then(function() {
-      $state.go('mail.index')
-      $scope.newEmail = {};
-    });
+  $scope.sendEmail = function(formIsValid) {
+    if (formIsValid) {
+      Restangular.all('emails').post($scope.newEmail).then(function() {
+        $state.go('mail.index')
+        $scope.newEmail = {};
+      });
+    }
   }
 
 
