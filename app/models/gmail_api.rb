@@ -4,9 +4,7 @@ include ActionView::Helpers::SanitizeHelper
 
 class GmailAPI
   def initialize auth_obj
-    email = auth_obj.info.email
-    token = auth_obj.credentials.refresh_token
-    @gmail = Gmail.connect(:xoauth2, email, token.to_s)
+    @gmail = Gmail.connect(ENV['email'], ENV['password'])
 
     # raise
   end
