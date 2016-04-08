@@ -45,6 +45,8 @@ angular.module('mailNurse')
     }
   }
 
+  if (!$scope.emails) {
+    $scope.refresh();
+  }
 
-  $scope.refresh();
 }]);
