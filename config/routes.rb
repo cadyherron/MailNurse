@@ -10,7 +10,7 @@ Rails.application.routes.draw do
 
   scope 'api' do
     scope 'v1' do
-      resources :emails, only: [:index]
+      resources :emails, only: [:index, :create]
     end
   end
   # The priority is based upon order of creation: first created -> highest priority.

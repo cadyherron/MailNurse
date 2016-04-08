@@ -29,4 +29,17 @@ class GmailAPI
     @email_objects
   end
 
+  def send(opts)
+    @gmail.deliver do
+      to opts[:to]
+      subject opts[:subject]
+      text_part do
+        body opts[:body]
+      end
+      html_part do
+        content_type 'text/html; charset=UTF-8'
+        body opts[:body]
+      end
+    end
+  end
 end
