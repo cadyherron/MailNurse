@@ -1,5 +1,5 @@
 console.log(angular);
-angular.module('mailNurse', ['ngMaterial', 'ui.router', 'restangular', ])
+angular.module('mailNurse', ['ngMaterial', 'ui.router', 'restangular', 'ngAnimate'])
 
 .config(['RestangularProvider', function(RestangularProvider){
   RestangularProvider.setBaseUrl('/api/v1');
