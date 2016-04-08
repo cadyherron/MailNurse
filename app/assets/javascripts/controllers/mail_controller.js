@@ -3,7 +3,6 @@ angular.module('mailNurse')
 
   $scope.loading = true;
 
-
   $scope.showEmail = function(ev, email, index) {
     // $scope.selectedIndex = index
      $mdDialog.show({
@@ -36,8 +35,3 @@ angular.module('mailNurse')
 
   $scope.refresh();
 }]);
-
-function resizeIframe(obj){
-  obj.style.height = 0;
-  obj.style.height = obj.contentWindow.document.body.scrollHeight + 'px';
-}

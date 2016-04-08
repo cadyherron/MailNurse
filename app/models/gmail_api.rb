@@ -3,24 +3,14 @@ include ActionView::Helpers::SanitizeHelper
 
 
 class GmailAPI
-  def initialize
-    @gmail = Gmail.connect(ENV["email"], ENV["password"])
+  def initialize(user)
+    @gmail = Gmail.connect(:xoauth2, 'kit.langton@gmail.com', user.oauth_token)
   end
-
-  # Mail.defaults do
-  #   retriever_method :pop3, :address    => "pop.gmail.com",
-  #     :port       => 995,
-  #     :user_name  => ENV['email'],
-  #     :password   => ENV['password'],
-  #     :enable_ssl => true
-  # end
 
   def grab_all
     @arr = []
     @email_objects = []
     @emails = @gmail.inbox.emails
-    # @other = Mail.all
-    # raise
     @emails.each do |email|
       begin
         body = Premailer.new(email.html_part.try(:body).try(:decoded), with_html_string: true).to_inline_css
