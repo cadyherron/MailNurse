@@ -33,12 +33,14 @@ angular.module('mailNurse')
     });
   }
 
-  $scope.compose = function() {
-    
-  }
 
-  $scope.sendEmail = function(email) {
-    Restangular.all('emails').post(email);
+  $scope.newEmail = {};
+
+
+  $scope.sendEmail = function() {
+    Restangular.all('emails').post($scope.newEmail).then(function() {
+      $scope.newEmail = {};
+    });
   }
 
 

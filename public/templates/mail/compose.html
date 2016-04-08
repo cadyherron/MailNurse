@@ -1,1 +1,40 @@
-Hello, please compose ur email
+<div layout="column" ng-cloak="" class="newEmailForm" ng-app="MyApp">
+
+  <md-content layout-padding="">
+    <form name="emailForm">
+
+      <md-input-container class="md-block">
+        <label>To:</label>
+        <input md-maxlength="100" required="" name="to" ng-model="email.to" ng-pattern="/^.+@.+\..+$/">
+        <div ng-messages="emailForm.to.$error">
+          <div ng-message="required">Please enter a valid email. We know you have friends to send cool emails to.</div>
+          <div ng-message="md-maxlength">The name has to be less than 100 characters long.</div>
+        </div>
+      </md-input-container>
+
+      <md-input-container class="md-block">
+        <label>Subject:</label>
+        <input required name="subject" ng-model="email.subject">
+        <div ng-messages="emailForm.subject.$error">
+          <div ng-message="required">This is required.</div>
+        </div>
+      </md-input-container>
+
+      <md-input-container class="md-block">
+        <label>Body:</label>
+        <textarea required="" name="body" ng-model="email.body" maxlength="1000"></textarea>
+
+        <div ng-messages="emailForm.clientEmail.$error" role="alert">
+          <div ng-message="required">This is required.
+          </div>
+        </div>
+      </md-input-container>
+
+        <md-button class="md-raised" aria-label="Send" ng-click="sendEmail()">
+          <h3>Send!</h3>
+        </md-button>
+
+    </form>
+  </md-content>
+
+</div>
