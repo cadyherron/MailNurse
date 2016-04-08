@@ -12,6 +12,7 @@ gem 'angularjs-rails'
 gem 'angular_rails_csrf'
 gem 'figaro'
 gem 'premailer'
+gem 'omniauth-google-oauth2'
 
 group :development, :test do
   gem 'rspec-rails'
