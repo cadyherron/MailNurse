@@ -7,6 +7,7 @@ class EmailsController < ApplicationController
 
   def create
     @emails = GmailAPI.new(current_user).send(email_params)
+    render json: 201
   end
 
   private

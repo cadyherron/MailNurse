@@ -1,10 +1,9 @@
 angular.module('mailNurse')
-.controller('MailCtrl', ['$scope', '$sce', 'Restangular', '$mdDialog', '$window', function($scope, $sce, Restangular, $mdDialog, $window) {
+.controller('MailCtrl', ['$scope', '$sce', 'Restangular', '$mdDialog', '$window', '$state', function($scope, $sce, Restangular, $mdDialog, $window, $state) {
 
   $scope.loading = true;
 
   $scope.showEmail = function(ev, email, index) {
-    // $scope.selectedIndex = index
      $mdDialog.show({
       template: '<md-dialog><md-toolbar><div class="md-toolbar-tools">{{email.subject}}<span flex></span><md-button class="md-icon-button" ng-click="close()"><md-icon>close</md-icon></md-button></div></md-toolbar><md-content layout-padding><div ng-bind-html="email.body"></div></md-content></md-dialog>',
       targetEvent: ev,
@@ -34,15 +33,15 @@ angular.module('mailNurse')
   }
 
 
-  $scope.newEmail = {};
+  $scope.newEmail = {email : {to: null, subject: null, body: null}};
 
 
   $scope.sendEmail = function() {
     Restangular.all('emails').post($scope.newEmail).then(function() {
+      $state.go('mail.index')
       $scope.newEmail = {};
     });
   }
-
 
 
   $scope.refresh();

@@ -5,16 +5,16 @@
 
       <md-input-container class="md-block">
         <label>To:</label>
-        <input md-maxlength="100" required="" name="to" ng-model="email.to" ng-pattern="/^.+@.+\..+$/">
+        <input md-maxlength="100" required="" name="to" ng-model="newEmail.email.to" ng-pattern="/^.+@.+\..+$/">
         <div ng-messages="emailForm.to.$error">
-          <div ng-message="required">Please enter a valid email. We know you have friends to send cool emails to.</div>
-          <div ng-message="md-maxlength">The name has to be less than 100 characters long.</div>
+          <div ng-message="required">Please enter a valid email. We know you have cool friends to send cool emails to.</div>
+          <div ng-message="md-maxlength">The email has to be less than 100 characters long.</div>
         </div>
       </md-input-container>
 
       <md-input-container class="md-block">
         <label>Subject:</label>
-        <input required name="subject" ng-model="email.subject">
+        <input required name="subject" ng-model="newEmail.email.subject">
         <div ng-messages="emailForm.subject.$error">
           <div ng-message="required">This is required.</div>
         </div>
@@ -22,7 +22,7 @@
 
       <md-input-container class="md-block">
         <label>Body:</label>
-        <textarea required="" name="body" ng-model="email.body" maxlength="1000"></textarea>
+        <textarea required="" name="body" ng-model="newEmail.email.body" maxlength="1000"></textarea>
 
         <div ng-messages="emailForm.clientEmail.$error" role="alert">
           <div ng-message="required">This is required.
