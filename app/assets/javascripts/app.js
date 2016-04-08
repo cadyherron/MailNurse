@@ -15,17 +15,17 @@ angular.module('mailNurse', ['ngMaterial', 'ui.router', 'restangular', 'ngAnimat
           url: "/mail",
           abstract: true, 
           controller: 'MailCtrl',
-          templateUrl: "templates/mail.html"
+          templateUrl: "/templates/mail.html"
         })
         .state('mail.index', {
           url: '',
           // controller: 'MailCtrl',
-          templateUrl: 'templates/mail/index.html',
+          templateUrl: '/templates/mail/index.html',
         })
         .state('mail.compose', {
           url: '/compose',
           // controller: "MailCtrl",
-          templateUrl: "templates/mail/compose.html"
+          templateUrl: "/templates/mail/compose.html"
         })
     }])
 
